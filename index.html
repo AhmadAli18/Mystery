@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Valentine Case</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Patrick+Hand&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="bg-music" loop>
+        <source src="Musique.m4a" type="audio/mp4">
+    </audio>
+
+    <div class="ui-controls">
+        <button id="mute-btn" class="icon-btn">🔈 Sound Off</button>
+    </div>
+
+    <div class="vignette"></div>
+
+    <main class="game-stage">
+        
+        <header class="cryptex-header">
+            <div class="cryptex-slot" id="slot-1"><div class="ring">I</div></div>
+            <div class="cryptex-slot" id="slot-2"><div class="ring">II</div></div>
+            <div class="cryptex-slot" id="slot-3"><div class="ring">III</div></div>
+            <div class="cryptex-slot" id="slot-4"><div class="ring">IV</div></div>
+        </header>
+
+        <section id="intro" class="panel active text-page">
+            <h1 class="title-font">The Case of the Missing Heart</h1>
+            <p class="handwritten-font note">"A mystery isn't solved by looking at facts... but by feeling the memories."</p>
+            <div class="separator">❧</div>
+            <button class="action-btn next-btn" data-next="p1-text">Begin Investigation</button>
+        </section>
+
+        <section id="p1-text" class="panel text-page">
+            <div class="narrative-content">
+                <br>
+                <p>Some cities shout their stories in gold and steel.</p>
+                <p>This one chose restraint.</p>
+                <p>Its walls were never meant to dazzle, yet time taught them to soften.</p>
+                <p>Built to mirror the colour of the desert at dusk, it learned to hold warmth without burning, elegance without excess.</p>
+                <p>Traders passed through it, royalty walked within it, but what remains is not its stone, it is the hue it learned to wear.</p>
+                <div class="separator">❧</div>
+                <p class="riddle-highlight">Find the colour a city becomes when history learns how to feel.</p>
+            </div>
+            <button class="action-btn next-btn" data-next="p1-game">Inspect Evidence</button>
+        </section>
+
+        <section id="p1-game" class="panel game-page">
+            <div class="puzzle-area">
+                <div class="palette-grid">
+                    <div class="blob" style="background: #b91c1c;" draggable="true" data-color="185,28,28" title="Red"></div>    
+                    <div class="blob" style="background: #1e3a8a;" draggable="true" data-color="30,58,138" title="Blue"></div>    
+                    <div class="blob" style="background: #14532d;" draggable="true" data-color="20,83,45" title="Green"></div>    
+                    <div class="blob" style="background: #f59e0b;" draggable="true" data-color="245,158,11" title="Yellow"></div> 
+                    <div class="blob" style="background: #000000;" draggable="true" data-color="0,0,0" title="Black"></div>       
+                    <div class="blob" style="background: #c084fc;" draggable="true" data-color="192,132,252" title="Purple"></div> 
+                    <div class="blob" style="background: #ea580c;" draggable="true" data-color="234,88,12" title="Orange"></div>  
+                    <div class="blob" style="background: #06b6d4;" draggable="true" data-color="6,182,212" title="Cyan"></div>    
+                    <div class="blob" style="background: #78350f;" draggable="true" data-color="120,53,15" title="Brown"></div>   
+                    <div class="blob" style="background: #ffffff;" draggable="true" data-color="255,255,255" title="White"></div>  
+                </div>
+
+                <div class="mixing-bowl" id="mixing-bowl">
+                    <span class="placeholder-text">Mix</span>
+                </div>
+                <button class="reset-link" id="p1-reset">Empty Bowl</button>
+            </div>
+        </section>
+
+        <section id="p2-text" class="panel text-page">
+            <div class="narrative-content">
+                <br>
+                <p>In every argument, there is noise, and then there is belief.</p>
+                <p>One side promised progress wrapped in brilliance, spoke of speed, scale, and shining futures.</p>
+                <p>The other asked quieter questions. It wondered what was lost in the rush.</p>
+                <p>When the room leaned forward and words stopped being rehearsed, which voice felt like yours?</p>
+                <p>Do not choose what sounded better.</p>
+                <div class="separator">❧</div>
+                <p class="riddle-highlight">Choose what you defended when disagreement mattered.</p>
+            </div>
+            <button class="action-btn next-btn" data-next="p2-game">Reconstruct the Stance</button>
+        </section>
+
+        <section id="p2-game" class="panel game-page">
+            <div class="puzzle-area debate-layout">
+                <div class="column drop-container" id="zone-left" data-zone="left">
+                    <div class="faint-mark">Boon</div>
+                </div>
+                
+                <div class="card-stack drop-container" id="card-stack" data-zone="stack">
+                    </div>
+
+                <div class="column drop-container" id="zone-right" data-zone="right">
+                    <div class="faint-mark">Bane</div>
+                </div>
+            </div>
+            <p class="hint-text">Drag the cards. Choose a side.</p>
+        </section>
+
+        <section id="interlude" class="panel text-page">
+            <div class="narrative-content">
+                <br>
+                <p>Some gifts are loud.</p>
+                <p>They arrive heavy with intention, meant to be noticed.</p>
+                <p>This one was quieter.</p>
+                <p>Light enough to rest without asking, shaped like a moment that doesn’t rush.</p>
+                <p>It did not promise permanence, only presence.</p>
+                <p>Worn close, not to be shown, but to be felt.</p>
+                <div class="separator">❧</div>
+                <p class="riddle-highlight">Some things are not given to be owned. They are given to stay.</p>
+            </div>
+            <button class="action-btn next-btn" data-next="p3-game">Unlock Memory</button>
+        </section>
+
+        <section id="p3-game" class="panel game-page">
+            <div class="p3-wrapper">
+                
+                <div class="riddle-grid">
+                    <div class="riddle-card-container">
+                        <div class="puzzle-piece" draggable="false" style="background-position: 0% 0%;" data-id="0"></div>
+                        <div class="riddle-overlay">
+                            <p>“I am always in front of you but can't be seen.”</p>
+                            <input type="text" class="riddle-input" data-ans="future" placeholder="?">
+                        </div>
+                    </div>
+
+                    <div class="riddle-card-container">
+                        <div class="puzzle-piece" draggable="false" style="background-position: 100% 0%;" data-id="1"></div>
+                        <div class="riddle-overlay">
+                            <p>“The more of this you take, the more you leave behind.”</p>
+                            <input type="text" class="riddle-input" data-ans="footsteps" placeholder="?">
+                        </div>
+                    </div>
+
+                    <div class="riddle-card-container">
+                        <div class="puzzle-piece" draggable="false" style="background-position: 0% 100%;" data-id="2"></div>
+                        <div class="riddle-overlay">
+                            <p>“I am tall when I am young, and I am short when I am old.”</p>
+                            <input type="text" class="riddle-input" data-ans="candle" placeholder="?">
+                        </div>
+                    </div>
+
+                    <div class="riddle-card-container">
+                        <div class="puzzle-piece" draggable="false" style="background-position: 100% 100%;" data-id="3"></div>
+                        <div class="riddle-overlay">
+                            <p>“I have keys but open no locks. I have space but no room. You can enter, but never leave.”</p>
+                            <input type="text" class="riddle-input" data-ans="keyboard" placeholder="?">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jigsaw-section">
+                    <p class="handwritten-font" style="margin-bottom: 10px;">Assemble the pieces below:</p>
+                    <div class="jigsaw-board">
+                        <div class="jigsaw-slot" data-index="0"></div>
+                        <div class="jigsaw-slot" data-index="1"></div>
+                        <div class="jigsaw-slot" data-index="2"></div>
+                        <div class="jigsaw-slot" data-index="3"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="p4-text" class="panel text-page">
+            <div class="narrative-content">
+                <br>
+                <p>Time is generous with moments but selective with meaning.</p>
+                <p>Most days pass unnamed, unmarked, untouched by memory.</p>
+                <p>But once, a sequence of numbers stopped being ordinary.</p>
+                <p>It became a beginning.</p>
+                <p>Not because the calendar demanded it, but because something stayed.</p>
+                <div class="separator">❧</div>
+                <p class="riddle-highlight">Find the moment when time stopped counting forward and started remembering.</p>
+            </div>
+            <button class="action-btn next-btn" data-next="p4-game">Enter the Date</button>
+        </section>
+
+        <section id="p4-game" class="panel game-page">
+            <div class="puzzle-area">
+                <div class="date-wrapper">
+                    <input type="text" id="date-input" placeholder="MM / DD" autocomplete="off" maxlength="7">
+                    <div class="underline"></div>
+                </div>
+                <button class="action-btn" id="check-date-btn">Confirm</button>
+            </div>
+        </section>
+
+        <section id="finale" class="panel">
+            <div class="final-content">
+                <div class="cryptex-final-spin"></div>
+                <h1 class="title-font big-reveal">Will you be my Valentine?</h1>
+                <div class="button-group">
+                    <button class="action-btn yes-btn">Yes, obviously!</button>
+                    <button class="action-btn yes-btn">Absolutely!</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
